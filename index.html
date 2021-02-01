@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+        <title>Pure React</title>
+    </head>
+
+    <body>
+        <div id="app">React not rendered</div>
+        <script src="https://unpkg.com/react@16.8.6/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@16.8.6/umd/react-dom.development.js"></script>
+        <script>
+            const Person = (props) => {
+                return React.createElement(
+                    'div',
+                    {},
+                    [
+                        React.createElement('h1', {}, props.name),
+                        React.createElement('p', {}, props.job)
+                    ]
+                )
+            }
+            const App = () => {
+                return React.createElement(
+                    'div',
+                    null,
+                    [
+                        React.createElement('h1', {}, 'REACT IS RENDERED'),
+                        React.createElement(Person, {name: 'Bhushan', job: 'developer'}),
+                        React.createElement(Person, { name: 'Vishal', job: 'engineer' }),
+                    ]
+                    );
+            }
+
+            ReactDOM.render(React.createElement(App), document.getElementById('app'));
+        </script>
+    </body>
+</html>
